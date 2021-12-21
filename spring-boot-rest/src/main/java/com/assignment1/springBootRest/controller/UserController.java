@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,7 @@ public class UserController {
 	@Autowired
     private UserService userservice;
      
-    @RequestMapping(value = "/user/addUser",method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value = "/user/addUser",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> addUser(@Valid @RequestBody User user, BindingResult bindingResult) {
     	if(bindingResult.hasErrors()) {
     		Map<String, String> errors = new HashMap<>();
@@ -40,7 +41,7 @@ public class UserController {
     		return userservice.addUser(user);
     }
     
-    @RequestMapping(value = "/user/editUser",method = RequestMethod.PUT, consumes = "application/json")
+    @RequestMapping(value = "/user/editUser",method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> editUser(@Valid @RequestBody User user, BindingResult bindingResult) {
     	if(bindingResult.hasErrors()) {
     		Map<String, String> errors = new HashMap<>();

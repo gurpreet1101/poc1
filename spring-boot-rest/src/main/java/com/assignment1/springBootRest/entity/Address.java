@@ -35,7 +35,12 @@ public class Address {
 	public Address() {
 		
 	}
-
+	public Address(String address, int pinCode, User user) {
+		super();
+		this.address = address;
+		this.pinCode = pinCode;
+		this.user = user;
+	}
 	public long getAddressId() {
 		return addressId;
 	}
