@@ -74,7 +74,7 @@ public class UserService {
 			if(!users.isEmpty())
 				return new ResponseEntity<Object>(users,HttpStatus.OK);
 			else 
-				return new ResponseEntity<Object>("No record found for this user name : "+userName, HttpStatus.OK);
+				return new ResponseEntity<Object>("No record found for this user name : "+userName, HttpStatus.NO_CONTENT);
 		}else
 			return new ResponseEntity<Object>("Please enter valid username", HttpStatus.BAD_REQUEST);
 	}
@@ -85,7 +85,7 @@ public class UserService {
 			if(!users.isEmpty())
 				return new ResponseEntity<Object>(users,HttpStatus.OK);
 			else
-				return new ResponseEntity<Object>("No record found for this surname : "+surName, HttpStatus.OK);
+				return new ResponseEntity<Object>("No record found for this surname : "+surName, HttpStatus.NO_CONTENT);
 		}else
 			return new ResponseEntity<Object>("Please enter valid surname", HttpStatus.BAD_REQUEST);
 	}
@@ -96,7 +96,7 @@ public class UserService {
 			if(!userIds.isEmpty())
 				return new ResponseEntity<Object>(userRepository.findAllById(userIds),HttpStatus.OK);
 			else
-				return new ResponseEntity<Object>("No record found for this pincode : "+pinCode, HttpStatus.OK);
+				return new ResponseEntity<Object>("No record found for this pincode : "+pinCode, HttpStatus.NO_CONTENT);
 		}else
 			return new ResponseEntity<Object>("Please enter valid pincode", HttpStatus.BAD_REQUEST);
 	}
@@ -114,7 +114,7 @@ public class UserService {
 			});
 			return new ResponseEntity<Object>(users,HttpStatus.OK);
 		}else {
-			return new ResponseEntity<Object>("No record found ", HttpStatus.OK);
+			return new ResponseEntity<Object>("No record found ", HttpStatus.NO_CONTENT);
 		}
 	}
 
@@ -131,7 +131,7 @@ public class UserService {
 			});
 			return new ResponseEntity<Object>(users,HttpStatus.OK);
 		}else {
-			return new ResponseEntity<Object>("No record found ", HttpStatus.OK);
+			return new ResponseEntity<Object>("No record found ", HttpStatus.NO_CONTENT);
 		}
 	}
 
